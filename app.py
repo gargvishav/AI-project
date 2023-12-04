@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 import pickle
 
 # Load the model
-model = pickle.load(open('model.sav', 'rb'))
+model = pickle.load(open('Model.sav', 'rb'))
 
 # Function to preprocess input data
 def preprocess_input(data):

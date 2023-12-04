@@ -1,10 +1,9 @@
 import streamlit as st
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
 import pickle
 
 # Load the model
-model = pickle.load(open('Model.sav', 'rb'))
+model = pickle.load(open('model.sav', 'rb'))
 
 # Function to preprocess input data
 def preprocess_input(data):
@@ -13,11 +12,18 @@ def preprocess_input(data):
                                       'OnlineBackup', 'DeviceProtection', 'TechSupport',
                                       'Contract', 'PaperlessBilling', 'MonthlyCharges', 'TotalCharges'])
 
-    # Convert categorical features to numerical using Label Encoding
-    categorical_features = [feature for feature in df.columns if df[feature].dtypes == 'O']
-    encoder = LabelEncoder()
-    for feature in categorical_features:
-        df[feature] = encoder.fit_transform(df[feature])
+    # Manually map categorical features to numerical representations
+    mapping_dict = {
+        'Yes': 1,
+        'No': 0,
+        'Month-to-month': 0,
+        'One year': 1,
+        'Two year': 2
+    }
+
+    for feature in df.columns:
+        if df[feature].dtypes == 'O':
+            df[feature] = df[feature].map(mapping_dict)
 
     return df
 

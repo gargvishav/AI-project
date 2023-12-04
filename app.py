@@ -1,14 +1,10 @@
 import streamlit as st
-import subprocess
 import pandas as pd
-from scikit-learn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder
 import pickle
 
-# Install required packages
-subprocess.check_call(["pip", "install", "sklearn"])
-
 # Load the model
-model = pickle.load(open('model.sav', 'rb'))
+model = pickle.load(open('Model.sav', 'rb'))
 
 # Function to preprocess input data
 def preprocess_input(data):

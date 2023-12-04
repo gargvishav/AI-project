@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 import pickle
 
 # Install required packages
-subprocess.check_call(["pip", "install", "scikit-learn"])
+subprocess.check_call(["pip", "install", "sklearn"])
 
 # Load the model
 model = pickle.load(open('model.sav', 'rb'))

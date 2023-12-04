@@ -1,7 +1,7 @@
 import streamlit as st
 import subprocess
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
+from scikit-learn.preprocessing import LabelEncoder
 import pickle
 
 # Install required packages
